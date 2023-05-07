@@ -1,0 +1,310 @@
+<head>
+  <title>checkIn</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+
+<body>
+  {{> hello}}
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+<template name="hello">
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">checkIn</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a id="checkInButton"><button style="background-color: #669866; color: #000;">Checking In?</button></a></li>
+              <li><a id="checkOutButton"><button style="background-color: #ec3636; color: #000;">Checking Out?</button></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3" id="welcome-header">Welcome to checkIn!</h1>
+    </div>
+  </div>
+
+  <div class="container" id="mainContainer">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h2 style="text-align:center;">When would you like to stay?</h2>
+          <div class="input-group">
+            <div class="container">
+              <div class="row">
+                <div class='col-sm-6'>
+                  <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                      <input type='text' class="form-control" id="checkInDate"/>
+                        <span class="input-group-addon">Check In
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <div class='input-group date' id='datetimepicker2'>
+                      <input type='text' class="form-control" id="checkOutDate"/>
+                      <span class="input-group-addon">Check Out
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <a href="#myAnchor" rel="" id="anchor1" class="anchorLink">
+              <button type="submit" class="btn" id="roomAvailability">Check Room Availability</button>
+            </a>
+          </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <a name="myAnchor" id="myAnchor">
+        <h3 style="text-align:center;">Please choose from the available rooms below</h3>
+      ></a>
+      <div class="container">
+        <div class="col-sm-6">
+          <div class="row" id="roomRow1">
+            <div class="col-sm-3">1</div>
+            <div class="col-sm-3">2</div>
+            <div class="col-sm-3">3</div>
+            <div class="col-sm-3">4</div>
+          </div>
+
+          <div class="row" id="roomRow2">
+            <div class="col-sm-3">9</div>
+            <div class="col-sm-3">10</div>
+            <div class="col-sm-3">11</div>
+            <div class="col-sm-3">12</div>
+          </div>
+
+          <div class="row" id="roomRow3">
+            <div class="col-sm-3">17</div>
+            <div class="col-sm-3">18</div>
+            <div class="col-sm-3">19</div>
+            <div class="col-sm-3">20</div>
+          </div>
+
+          <div class="row" id="roomRow4">
+            <div class="col-sm-3">25</div>
+            <div class="col-sm-3">26</div>
+            <div class="col-sm-3">27</div>
+            <div class="col-sm-3">28</div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="row" id="roomRow1">
+            <div class="col-sm-3">5</div>
+            <div class="col-sm-3">6</div>
+            <div class="col-sm-3">7</div>
+            <div class="col-sm-3">8</div>
+          </div>
+
+          <div class="row" id="roomRow2">
+            <div class="col-sm-3">13</div>
+            <div class="col-sm-3">14</div>
+            <div class="col-sm-3">15</div>
+            <div class="col-sm-3">16</div>
+          </div>
+
+          <div class="row" id="roomRow3">
+            <div class="col-sm-3">21</div>
+            <div class="col-sm-3">22</div>
+            <div class="col-sm-3">23</div>
+            <div class="col-sm-3">24</div>
+          </div>
+
+          <div class="row" id="roomRow4">
+            <div class="col-sm-3">29</div>
+            <div class="col-sm-3">30</div>
+            <div class="col-sm-3">31</div>
+            <div class="col-sm-3">32</div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="row" id="roomRow1">
+            <div class="col-sm-3">33</div>
+            <div class="col-sm-3">34</div>
+            <div class="col-sm-3">35</div>
+            <div class="col-sm-3">36</div>
+          </div>
+
+          <div class="row" id="roomRow2">
+            <div class="col-sm-3">41</div>
+            <div class="col-sm-3">42</div>
+            <div class="col-sm-3">43</div>
+            <div class="col-sm-3">44</div>
+          </div>
+
+          <div class="row" id="roomRow3">
+            <div class="col-sm-3">49</div>
+            <div class="col-sm-3">50</div>
+            <div class="col-sm-3">51</div>
+            <div class="col-sm-3">52</div>
+          </div>
+
+          <div class="row" id="roomRow4">
+            <div class="col-sm-3">57</div>
+            <div class="col-sm-3">58</div>
+            <div class="col-sm-3">59</div>
+            <div class="col-sm-3">60</div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="row" id="roomRow1">
+            <div class="col-sm-3">37</div>
+            <div class="col-sm-3">38</div>
+            <div class="col-sm-3">39</div>
+            <div class="col-sm-3">40</div>
+          </div>
+
+          <div class="row" id="roomRow2">
+            <div class="col-sm-3">45</div>
+            <div class="col-sm-3">46</div>
+            <div class="col-sm-3">47</div>
+            <div class="col-sm-3">48</div>
+          </div>
+
+          <div class="row" id="roomRow3">
+            <div class="col-sm-3">53</div>
+            <div class="col-sm-3">54</div>
+            <div class="col-sm-3">55</div>
+            <div class="col-sm-3">56</div>
+          </div>
+
+          <div class="row" id="roomRow4">
+            <div class="col-sm-3">61</div>
+            <div class="col-sm-3">62</div>
+            <div class="col-sm-3">63</div>
+            <div class="col-sm-3">64</div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="row" id="roomRow1">
+            <div class="col-sm-3">65</div>
+            <div class="col-sm-3">66</div>
+            <div class="col-sm-3">67</div>
+            <div class="col-sm-3">68</div>
+          </div>
+
+          <div class="row" id="roomRow2">
+            <div class="col-sm-3">73</div>
+            <div class="col-sm-3">74</div>
+            <div class="col-sm-3">75</div>
+            <div class="col-sm-3">76</div>
+          </div>
+
+          <div class="row" id="roomRow3">
+            <div class="col-sm-3">81</div>
+            <div class="col-sm-3">82</div>
+            <div class="col-sm-3">83</div>
+            <div class="col-sm-3">84</div>
+          </div>
+
+          <div class="row" id="roomRow4">
+            <div class="col-sm-3">89</div>
+            <div class="col-sm-3">90</div>
+            <div class="col-sm-3">91</div>
+            <div class="col-sm-3">92</div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="row" id="roomRow1">
+            <div class="col-sm-3">69</div>
+            <div class="col-sm-3">70</div>
+            <div class="col-sm-3">71</div>
+            <div class="col-sm-3">72</div>
+          </div>
+
+          <div class="row" id="roomRow2">
+            <div class="col-sm-3">77</div>
+            <div class="col-sm-3">78</div>
+            <div class="col-sm-3">79</div>
+            <div class="col-sm-3">80</div>
+          </div>
+
+          <div class="row" id="roomRow3">
+            <div class="col-sm-3">85</div>
+            <div class="col-sm-3">86</div>
+            <div class="col-sm-3">87</div>
+            <div class="col-sm-3">88</div>
+          </div>
+
+          <div class="row" id="roomRow4">
+            <div class="col-sm-3">93</div>
+            <div class="col-sm-3">94</div>
+            <div class="col-sm-3">95</div>
+            <div class="col-sm-3">96</div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-6">
+          <div class="row" id="roomRow1">
+            <div class="col-sm-3">97</div>
+            <div class="col-sm-3">98</div>
+            <div class="col-sm-3">99</div>
+            <div class="col-sm-3">100</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <h3 style="text-align:center;">Your total payment is listed below</h3>
+      <h2 style="text-align:center;" id="price"></h2>
+      <div class="form-actions">
+          <button type="submit" class="btn" id="payNow">Pay Now</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p>&copy; checkIn 2017</p>
+    </footer>
+  </div> <!-- /container -->
+
+</template>
